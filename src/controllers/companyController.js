@@ -12,8 +12,8 @@ module.exports = {
       if (error instanceof HTTPError) {
         response.status(error.status).json({ message: error.message })
       } else {
-        console.log(error)
-        response.status(500).json({ message: 'Internal Server Error' })
+        response.status(500)
+          .json({ message: 'Internal Server Error' })
       }
     }
   },
@@ -27,10 +27,10 @@ module.exports = {
       response.json(await companyService.updateCompany(id, finalObj))
     } catch (error) {
       if (error instanceof HTTPError) {
-        console.log(error)
+        // console.log(error)
         response.status(error.status).json({ message: error.message })
       } else {
-        console.log(error)
+        // console.log(error)
         response.status(500).json({ message: 'Internal Server Error' })
       }
     }

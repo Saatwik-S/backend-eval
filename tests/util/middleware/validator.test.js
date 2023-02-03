@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // import { describe, it } from '@jest/globals'
 const validator = require('./../../../src/util/middleware/validator')
 

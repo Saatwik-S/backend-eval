@@ -1,6 +1,5 @@
 const saveService = require('../services/saveService')
 const HTTPError = require('../util/HTTPError')
-const externalAPI = require('../util/externalAPI')
 
 module.exports = {
   saveData: async (request, response) => {
@@ -12,7 +11,7 @@ module.exports = {
       if (error instanceof HTTPError) {
         response.status(error.status).json({ message: error.message })
       } else {
-        console.log(error)
+        // console.log(error)
         response.status(500).json({ message: 'Internal Server Error' })
       }
     }

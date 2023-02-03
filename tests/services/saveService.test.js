@@ -1,9 +1,9 @@
+/* eslint-disable no-undef */
 // import { describe, it, expect, jest } from '@jest/globals'
 
 const db = require('../../src/database/models/index')
 const saveService = require('../../src/services/saveService')
 const externalAPI = require('../../src/util/externalAPI')
-const validator = require('./../../src/util/middleware/validator')
 
 describe('Tests for save service', () => {
   it('should return a array', async () => {

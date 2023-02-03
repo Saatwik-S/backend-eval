@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/36</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/36</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,72 +104,72 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const db = require('../database/models/index')
 const HTTPError = require('../util/HTTPError')
 &nbsp;
 module.exports = {
-  getCompanyBySector: <span class="fstat-no" title="function not covered" >async (sector) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const data = await db.company_details.findAll({</span>
-<span class="cstat-no" title="statement not covered" >      attributes: [</span>
-<span class="cstat-no" title="statement not covered" >        ['company_id', 'id'],</span>
-<span class="cstat-no" title="statement not covered" >        ['company_name', 'name'],</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        ['company_ceo', 'ceo'],</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        ['company_performance', 'score']</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      ],</span>
-<span class="cstat-no" title="statement not covered" >      include: [{</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        model: db.company_sectors,</span>
-<span class="cstat-no" title="statement not covered" >        where: { company_sector: sector },</span>
-<span class="cstat-no" title="statement not covered" >        attributes: []</span>
-<span class="cstat-no" title="statement not covered" >      }]</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    )</span>
-<span class="cstat-no" title="statement not covered" >    if (!data || (data &amp;&amp; data.length === 0)) { throw new HTTPError('Not found', 404) }</span>
-<span class="cstat-no" title="statement not covered" >    data.forEach((ele, index) =&gt; { data[index] = ele.dataValues })</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return (data.sort((a, b) =&gt; b.score - a.score)).map((ele, index) =&gt; { ele.ranking = index + 1; return ele })</span>
-<span class="cstat-no" title="statement not covered" >    // return data.sort((a, b) =&gt; b.score - a.score).</span>
+  getCompanyBySector: async (sector) =&gt; {
+    const data = await db.company_details.findAll({
+      attributes: [
+        ['company_id', 'id'],
+        ['company_name', 'name'],
+&nbsp;
+        ['company_ceo', 'ceo'],
+&nbsp;
+        ['company_performance', 'score']
+&nbsp;
+      ],
+      include: [{
+&nbsp;
+        model: db.company_sectors,
+        where: { company_sector: sector },
+        attributes: []
+      }]
+    }
+    )
+    if (!data || (data &amp;&amp; data.length === 0)) { throw new HTTPError('Not found', 404) }
+    data.forEach((ele, index) =&gt; { data[index] = ele.dataValues })
+&nbsp;
+    return (data.sort((a, b) =&gt; b.score - a.score)).map((ele, index) =&gt; { ele.ranking = index + 1; return ele })
+    // return data.sort((a, b) =&gt; b.score - a.score).
   },
-  updateCompany: <span class="fstat-no" title="function not covered" >async (id, data) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const res = await db.company_details.update(data, { where: { company_id: id } })</span>
-<span class="cstat-no" title="statement not covered" >    if (res[0] === 0) { throw new HTTPError('Cannot update', 404) }</span>
-<span class="cstat-no" title="statement not covered" >    const newData = await db.company_details.findOne({ where: { company_id: id } })</span>
-<span class="cstat-no" title="statement not covered" >    return newData.dataValues</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  updateCompany: async (id, data) =&gt; {
+    const res = await db.company_details.update(data, { where: { company_id: id } })
+    if (res[0] === 0) { throw new HTTPError('Cannot update', 404) }
+    const newData = await db.company_details.findOne({ where: { company_id: id } })
+    return newData.dataValues
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -178,7 +178,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-03T10:44:46.543Z
+                at 2023-02-03T18:16:04.058Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -23,7 +23,7 @@ module.exports = {
     if (data.error) {
       throw new HTTPError(data.error, 400)
     }
-    console.log(data)
+    // console.log(data)
     return data
   }
 }

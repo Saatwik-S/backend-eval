@@ -29,6 +29,8 @@ const schemas = {
 
  */
 const validate = (schema, parameterType) => (req, res, next) => {
+  // console.log(schema)
+  // console.log(parameterType)
   const { error } = schema.validate(req[parameterType])
   if (error) {
     return res.status(400).json({ message: error.message })
