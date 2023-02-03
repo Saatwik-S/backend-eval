@@ -3,7 +3,7 @@ const { validate, schemas, REQ_PARAMTERS } = require('../util/middleware/validat
 
 const router = require('express').Router()
 
-router.route('/save').post(
+router.route('/').post(
   validate(schemas.saveAPI, REQ_PARAMTERS.BODY),
   saveRouterController.saveData
 )

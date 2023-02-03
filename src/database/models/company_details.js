@@ -16,7 +16,7 @@ module.exports = (sequelize, Sequelize) => {
      * The `models/index` file will call this method automatically.
      */
     static associate (models) {
-      this.hasOne(models.company_sectors, { foreignKey: 'company_id' })
+      this.hasOne(models.company_sectors, { foreignKey: 'company_id', sourceKey: 'company_id' })
       // define association here
     }
   }
@@ -49,7 +49,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER
     },
     company_performance: {
-      type: Sequelize.STRING
+      type: Sequelize.FLOAT
     },
     createdAt: {
       allowNull: false,

@@ -1,9 +1,7 @@
-const { DataTypes } = require('sequelize')
 const db = require('../database/models/index')
 const externalAPI = require('../util/externalAPI')
-const company_sectors = require('../database/models/company_sectors')
 
-const calculateCompanyScore = ({ cpi, cf, mau, roic }) => ((cpi * 10) + (cf / 10000) + (mau * 10) + roic) / 4
+const calculateCompanyScore = ({ cpi, cf, mau, roic }) => (((cpi * 10) + (cf / 10000) + (mau * 10) + roic) / 4).toFixed(2)
 
 const populatePerformace = async (allSectors) => {
   const performance = []
@@ -24,7 +22,7 @@ const populatePerformace = async (allSectors) => {
 const modifyCompanies = (allCompanies, performance) => {
   allCompanies.forEach(company => {
     const companyPerformanceFromID = performance.find(e => e.company_id === company.company_id)
-    if (companyPerformanceFromID) { company.company_score = companyPerformanceFromID.company_score }
+    if (companyPerformanceFromID) { company.company_performance = companyPerformanceFromID.company_score }
   })
 }
 
@@ -49,9 +47,9 @@ module.exports = {
     await populatePerformace(allSectors)
     const allCompanies = await populateAllCompanies(companiesBySector)
     modifyCompanies(allCompanies, performance)
-    db.company_details.bulkCreate(allCompanies, { returning: true })
-    db.company_sectors.bulkCreate(companiesBySector, { returning: true })
+    await db.company_details.bulkCreate(allCompanies, { returning: true })
+    await db.company_sectors.bulkCreate(companiesBySector, { returning: true })
 
-    return allCompanies.map(company => ({ id: company.company_id, name: company.company_name, score: company.company_score }))
+    return allCompanies.map(company => ({ id: company.company_id, name: company.company_name, score: company.company_performance }))
   }
 }

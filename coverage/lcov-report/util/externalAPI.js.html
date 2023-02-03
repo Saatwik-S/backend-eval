@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,59 +99,59 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const HTTPError = require('./HTTPError')
 &nbsp;
 const EXTERNAL_URL = 'http://54.167.46.10'
 &nbsp;
 module.exports = {
-  fetchCompanyBySector: <span class="fstat-no" title="function not covered" >async (sector) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const response = await fetch(`${EXTERNAL_URL}/sector?name=${sector}`)</span>
-<span class="cstat-no" title="statement not covered" >    const data = await response.json()</span>
-<span class="cstat-no" title="statement not covered" >    if (data.error) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new HTTPError(data.error, 400)</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    return data</span>
+  fetchCompanyBySector: async (sector) =&gt; {
+    const response = await fetch(`${EXTERNAL_URL}/sector?name=${sector}`)
+    const data = await response.json()
+    if (data.error) {
+      throw new HTTPError(data.error, 400)
+    }
+    return data
   },
 &nbsp;
-  fetchCompanySectors: <span class="fstat-no" title="function not covered" >async (url) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const response = await fetch(url)</span>
-<span class="cstat-no" title="statement not covered" >    const data = await response.text()</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return (data.split('\n').map(dataRow =&gt; dataRow.split(',')).map(data =&gt; ({ company_id: data[0], company_sector: data[1] }))).splice(1)</span>
+  fetchCompanySectors: async (url) =&gt; {
+    const response = await fetch(url)
+    const data = await response.text()
+&nbsp;
+    return (data.split('\n').map(dataRow =&gt; dataRow.split(',')).map(data =&gt; ({ company_id: data[0], company_sector: data[1] }))).splice(1)
   },
-  fetchCompanyById: <span class="fstat-no" title="function not covered" >async (id) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const response = await fetch(`${EXTERNAL_URL}/company/${id}`)</span>
-<span class="cstat-no" title="statement not covered" >    const data = await response.json()</span>
-<span class="cstat-no" title="statement not covered" >    if (data.error) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new HTTPError(data.error, 400)</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    console.log(data)</span>
-<span class="cstat-no" title="statement not covered" >    return data</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  fetchCompanyById: async (id) =&gt; {
+    const response = await fetch(`${EXTERNAL_URL}/company/${id}`)
+    const data = await response.json()
+    if (data.error) {
+      throw new HTTPError(data.error, 400)
+    }
+    console.log(data)
+    return data
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -160,7 +160,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-03T08:33:08.647Z
+                at 2023-02-03T10:26:28.925Z
             </div>
         <script src="../prettify.js"></script>
         <script>

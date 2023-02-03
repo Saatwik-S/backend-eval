@@ -1,8 +1,6 @@
 
 'use strict'
 
-const { DataTypes } = require('sequelize')
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   /**
@@ -38,7 +36,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       company_performance: {
-        type: Sequelize.STRING
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
