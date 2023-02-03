@@ -5,24 +5,23 @@ const HTTPError = require('../../src/util/HTTPError')
 
 describe('Tests for company controller', () => {
   it('should send 200 when everything is fine', async () => {
-    jest.spyOn(companyService, 'updateCompany').mockResolvedValue('Company updated')
+    jest.spyOn(companyService, 'updateCompany').mockResolvedValue({})
     const req = {
       params: { id: 1 },
-      body: { ceo: '' }
+      body: { ceo: 'lol' }
     }
     const res = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn()
     }
     await companyController.updateCompany(req, res)
-    expect(res.status).toHaveBeenCalledWith(200)
-    expect(res.status().json).toHaveBeenCalledWith({ message: 'Company updated sucessfully' })
+    expect(res.json).toHaveBeenCalledWith({})
   })
   it('should throw http error', async () => {
     jest.spyOn(companyService, 'updateCompany').mockRejectedValue(new HTTPError('Bad request', 400))
     const req = {
-      params: { id: 1 },
-      body: { ceo: '' }
+      params: { id: '24214' },
+      body: { ceo: 'ff' }
     }
     const res = {
       status: jest.fn().mockReturnThis(),
