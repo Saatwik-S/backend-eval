@@ -1,5 +1,6 @@
 // import { describe, it, expect, jest } from '@jest/globals'
 
+const db = require('../../src/database/models/index')
 const saveService = require('../../src/services/saveService')
 const externalAPI = require('../../src/util/externalAPI')
 const validator = require('./../../src/util/middleware/validator')
@@ -31,6 +32,7 @@ describe('Tests for save service', () => {
         'enterprise'
       ]
     }])
+
     jest.spyOn(externalAPI, 'fetchCompanyBySector').mockResolvedValue([
       {
         companyId: '95b5a067-808a-44a9-a490-b4ef8a045f61',
@@ -43,10 +45,17 @@ describe('Tests for save service', () => {
       }
     ])
 
+    jest.spyOn(db.company_details, 'bulkCreate').mockResolvedValue(true)
+    jest.spyOn(db.company_sectors, 'bulkCreate').mockResolvedValue(true)
+
     const data = await saveService.save('https://store-0001.s3.amazonaws.com/input.csv')
     // expect(externalAPI.fetchCompanySectors).toHaveBeenCalled()
     // expect(externalAPI.fetchCompanyById).toHaveBeenCalled()
     // expect(externalAPI.fetchCompanyBySector).toHaveBeenCalled()
-    expect(data).toEqual([])
+    expect(data).toEqual([{
+      id: undefined,
+      name: undefined,
+      score: undefined
+    }])
   })
 })
