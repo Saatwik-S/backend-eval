@@ -23,10 +23,11 @@ module.exports = {
 
       const finalObj = { company_ceo: request.body.ceo, company_address: request.body.address }
       if (!finalObj.company_address && !finalObj.company_ceo) throw new HTTPError('Bad request', 400)
-      await companyService.updateCompany(id, finalObj)
-      response.json({ message: 'Company updated successfully' })
+
+      response.json(await companyService.updateCompany(id, finalObj))
     } catch (error) {
       if (error instanceof HTTPError) {
+        console.log(error)
         response.status(error.status).json({ message: error.message })
       } else {
         console.log(error)

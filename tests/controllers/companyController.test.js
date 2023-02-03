@@ -35,7 +35,7 @@ describe('Tests for company controller', () => {
     jest.spyOn(companyService, 'updateCompany').mockRejectedValue(new Error('Server error'))
     const req = {
       params: { id: 1 },
-      body: { ceo: '' }
+      body: { ceo: 'ff' }
     }
     const res = {
       status: jest.fn().mockReturnThis(),

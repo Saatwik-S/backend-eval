@@ -15,7 +15,6 @@ module.exports = {
   fetchCompanySectors: async (url) => {
     const response = await fetch(url)
     const data = await response.text()
-
     return (data.split('\n').map(dataRow => dataRow.split(',')).map(data => ({ company_id: data[0], company_sector: data[1] }))).splice(1)
   },
   fetchCompanyById: async (id) => {

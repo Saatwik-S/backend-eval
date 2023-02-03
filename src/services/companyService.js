@@ -30,6 +30,7 @@ module.exports = {
   updateCompany: async (id, data) => {
     const res = await db.company_details.update(data, { where: { company_id: id } })
     if (res[0] === 0) { throw new HTTPError('Cannot update', 404) }
-    return res
+    const newData = await db.company_details.findOne({ where: { company_id: id } })
+    return newData.dataValues
   }
 }
