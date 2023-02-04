@@ -20,7 +20,7 @@ describe('Tests for company controller', () => {
       await companyController.updateCompany(req, res)
       expect(res.json).toHaveBeenCalledWith({})
     })
-    it('should throw http error', async () => {
+    it('should throw http error when the company is not found', async () => {
       jest.spyOn(companyService, 'updateCompany').mockRejectedValue(new HTTPError('Bad request', 400))
       const req = {
         params: { id: '24214' },
@@ -34,7 +34,7 @@ describe('Tests for company controller', () => {
       expect(res.status).toHaveBeenCalledWith(400)
       //  expect(res.status().json).toHaveBeenCalledWith({ message: 'Bad request' })
     })
-    it('should send 500 when server error', async () => {
+    it('should send 500 when server error when some db error happens', async () => {
       jest.spyOn(companyService, 'updateCompany').mockRejectedValue(new Error('Server error'))
       const req = {
         params: { id: 1 },
@@ -47,7 +47,7 @@ describe('Tests for company controller', () => {
       await companyController.updateCompany(req, res)
       expect(res.status).toHaveBeenCalledWith(500)
     })
-    it('should throw http error when no ceo and address', async () => {
+    it('should throw http error when no ceo and address is provided', async () => {
       const req = {
         params: { id: '24214' },
         body: { }
@@ -76,7 +76,7 @@ describe('Tests for company controller', () => {
       await companyController.getCompanyBySector(req, res)
       expect(res.json).toHaveBeenCalledWith({})
     })
-    it('should throw http error', async () => {
+    it('should throw http error when the sector is not found', async () => {
       jest.spyOn(companyService, 'getCompanyBySector').mockRejectedValue(new HTTPError('Bad request', 400))
       const req = {
         query: { sector: '24214' }
@@ -89,7 +89,7 @@ describe('Tests for company controller', () => {
       expect(res.status).toHaveBeenCalledWith(400)
       expect(res.status().json).toHaveBeenCalledWith({ message: 'Bad request' })
     })
-    it('should send 500 when server error', async () => {
+    it('should send 500 when server error when something wrong happens in the server', async () => {
       jest.spyOn(companyService, 'getCompanyBySector').mockRejectedValue(new Error('Server error'))
       const req = {
         params: { urlLink: '' }

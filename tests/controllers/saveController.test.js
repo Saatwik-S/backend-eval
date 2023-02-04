@@ -18,7 +18,7 @@ describe('Tests for save controller', () => {
     expect(res.status).toHaveBeenCalledWith(201)
     expect(res.status().json).toHaveBeenCalledWith([])
   })
-  it('should throw http error', async () => {
+  it('should throw http error when no link is provided', async () => {
     jest.spyOn(saveService, 'save').mockRejectedValue(new HTTPError('Bad request', 400))
     const req = {
       body: { urlLink: '' }
@@ -31,7 +31,7 @@ describe('Tests for save controller', () => {
     expect(res.status).toHaveBeenCalledWith(400)
     expect(res.status().json).toHaveBeenCalledWith({ message: 'Bad request' })
   })
-  it('should send 500 when server error', async () => {
+  it('should send 500 when server error when something wrong happens due to server issues', async () => {
     jest.spyOn(saveService, 'save').mockRejectedValue(new Error('Server error'))
     const req = {
       body: { urlLink: '' }

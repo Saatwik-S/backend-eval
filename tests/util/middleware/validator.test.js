@@ -18,7 +18,7 @@ describe('Tests for validator middleware', () => {
     expect(res.status).toHaveBeenCalledWith(400)
     expect(res.status().json).toHaveBeenCalledWith({ message: '"urlLink" is not allowed to be empty' })
   })
-  it('Should call next callback function wjen urlLink is provided', () => {
+  it('Should call next callback function when urlLink is provided', () => {
     const req = {
       body: {
         urlLink: 'https://store-0001.s3.amazonaws.com/input.csv'
